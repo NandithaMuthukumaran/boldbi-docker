@@ -158,7 +158,7 @@ services:
 
   bold-ai:
     container_name: bold_ai_container
-    image: us-docker.pkg.dev/boldbi-294612/boldbi/bold-ai:15.2.6_80port
+    image: us-docker.pkg.dev/boldbi-294612/boldbi/bold-ai:15.2.6
     restart: on-failure
     volumes:
       - boldservices_data:/application/app_data
