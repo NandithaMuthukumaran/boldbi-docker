@@ -66,6 +66,8 @@ services:
     depends_on:
       id-web:
         condition: service_healthy
+      id-api:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/health-check"]
       interval: 10s
@@ -175,6 +177,8 @@ services:
     restart: on-failure
     volumes:
       - "<default_conf_path>:/etc/nginx/conf.d/default.conf"
+      - "<ssl_cert_file_path>:/etc/ssl/domain.crt"
+      - "<ssl_key_file_path>:/etc/ssl/domain.key"
     ports:
       - "8085:80"
       # - "443:443"
